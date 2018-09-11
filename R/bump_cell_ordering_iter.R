@@ -40,7 +40,7 @@ bump_cell_ordering_iter <- function(cycle_data, celltime_levels, cell_times_iter
       ll <- list("out_amp"=out_amp, "out_phi"=out_phi, "out_sigma"=out_sigma,
                  "out_scale" = scale)
       return(ll)
-    }, mc.cores=parallel::detectCores())
+    }, mc.cores=1)
 
     amp <- as.numeric(unlist(lapply(1:length(lmfit_list), function(n) return(lmfit_list[[n]]$out_amp))));
     phi <- as.numeric(unlist(lapply(1:length(lmfit_list), function(n) return(lmfit_list[[n]]$out_phi))));
@@ -74,7 +74,7 @@ bump_cell_ordering_iter <- function(cycle_data, celltime_levels, cell_times_iter
     res_error_adjusted <- sweep(res_error_adjusted, 2, 2*sigma^2, '/');
     out <- rowSums(sweep(res_error_adjusted,2,log(sigma)) - 0.5*log(2*pi));
     return(out)
-  }, mc.cores=parallel::detectCores()));
+  }, mc.cores=1));
 
 
   signal_intensity_class_exp <- do.call(rbind,lapply(1:dim(signal_intensity_per_class)[1], function(x)
