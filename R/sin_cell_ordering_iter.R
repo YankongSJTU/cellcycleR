@@ -28,6 +28,7 @@ sin_cell_ordering_iter <- function(cycle_data,
 
   G <- dim(cycle_data)[2]
   numcells <- dim(cycle_data)[1]
+  freq<-1
   sigma <- array(0,G)
   amp <- array(0,G)
   phi <- array(0,G)
