@@ -80,13 +80,13 @@ sin_cell_ordering_class <- function(cycle_data, celltime_levels,
   
     for(iter in 1:num_iter) {
       fun <- sin_cell_ordering_iter(cycle_data, celltime_levels, cell_times_iter,
-                                  fix.phase, phase_in, freq);
+                                  fix.phase, phase_in);
       cell_times_iter <- fun$cell_times_iter;
       amp_iter <- fun$amp_iter;
       phi_iter <- fun$phi_iter;
       sigma_iter <- fun$sigma_iter;
       signal_intensity_iter <- fun$signal_intensity_iter;
-      loglik_iter <- sin_loglik_cellcycle(cycle_data, cell_times_iter, amp_iter, phi_iter, sigma_iter, freq);
+      loglik_iter <- sin_loglik_cellcycle(cycle_data, cell_times_iter, amp_iter, phi_iter, sigma_iter);
       if (verbose == TRUE) {
         cat("The loglikelihood after iter", iter, "is:", loglik_iter,"\n")
       }
