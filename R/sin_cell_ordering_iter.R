@@ -12,12 +12,12 @@
 #'  @export
 #'  @examples
 
+#sin_cell_ordering_iter <- function(cycle_data, celltime_levels, cell_times_iter,
+#                                   fix.phase=FALSE, phase_in=NULL, freq = 1)
 sin_cell_ordering_iter <- function(cycle_data, 
                                    celltime_levels, 
                                    cell_times_iter, 
                                    fix.phase=FALSE, phase_in=NULL)
-#sin_cell_ordering_iter <- function(cycle_data, celltime_levels, cell_times_iter,
-#                                   fix.phase=FALSE, phase_in=NULL, freq = 1)
 {
   if(fix.phase==TRUE & is.null(phase_in))
     stop("fix.phase=TRUE and phase not provided")
