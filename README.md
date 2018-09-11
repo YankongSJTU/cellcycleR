@@ -36,7 +36,7 @@ cycle_data <- sim_sinusoidal_cycle(G, amp_genes, phi_genes, sigma_genes, cell_ti
 The cell ordering into time classes on the cell cycle is given by 
 
 ```
-out <- cell_reordering_phase(cycle_data, celltime_levels = 100, num_iter=100)
+out <- sin_cell_ordering_class(cycle_data, celltime_levels = 100, num_iter=100)
 ```
 
 The full order of the cells can then be obtained by 
