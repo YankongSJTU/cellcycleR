@@ -57,7 +57,7 @@ np_cell_ordering_iter <- function(cycle_data, celltime_levels, cell_times_iter, 
                                       }}
                                       out_list <- list("fit"=fit, "sigma"=out_sigma);
                                       return(out_list)
-  }, mc.cores=parallel::detectCores())
+  }, mc.cores=1)
 
   np_signal <- do.call(cbind, lapply(1:G, function(g) return(npfit_list[[g]]$fit)));
   sigma <- as.numeric(unlist(lapply(1:G, function(g) return(npfit_list[[g]]$sigma))));
@@ -72,7 +72,7 @@ np_cell_ordering_iter <- function(cycle_data, celltime_levels, cell_times_iter, 
     res_error_adjusted <- sweep(res_error_adjusted, 2, 2*sigma^2, '/');
     out <- rowSums(sweep(res_error_adjusted,2,log(sigma)) - 0.5*log(2*pi));
     return(out)
-  }, mc.cores=parallel::detectCores()));
+  }, mc.cores=1));
 
   signal_intensity_class_exp <- do.call(rbind,lapply(1:dim(signal_intensity_per_class)[1], function(x)
   {
