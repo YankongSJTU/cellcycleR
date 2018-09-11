@@ -49,7 +49,7 @@ sin_cell_ordering_iter <- function(cycle_data,
                                   out_phi <- atan3(as.numeric(beta2), as.numeric(beta1));
                                   ll <- list("out_amp"=out_amp, "out_phi"=out_phi, "out_sigma"=out_sigma)
                                   return(ll)
-                                }, mc.cores=parallel::detectCores())
+                                }, mc.cores=1)
 
     amp <- as.numeric(unlist(lapply(1:length(lmfit_list), function(n) return(lmfit_list[[n]]$out_amp))));
     phi <- as.numeric(unlist(lapply(1:length(lmfit_list), function(n) return(lmfit_list[[n]]$out_phi))));
